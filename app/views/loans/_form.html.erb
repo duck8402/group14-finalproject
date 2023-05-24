@@ -1,0 +1,50 @@
+<%= form_with(model: loan) do |form| %>
+<% if loan.errors.any? %>
+<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+  <h2 class="text-lg font-semibold mb-3"><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+
+  <ul class="list-disc leading-relaxed">
+    <% loan.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="mb-6">
+        <%= form.label :loanid, class: label_class %>
+          <%= form.text_field :loanid, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :library_id, class: label_class %>
+        <%= form.select :library_id, options_from_collection_for_select(Library.all, 'id', 'library_id', selected = loan.library_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :member_id, class: label_class %>
+        <%= form.select :member_id, options_from_collection_for_select(Member.all, 'id', 'memberid', selected = loan.member_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :book_id, class: label_class %>
+        <%= form.select :book_id, options_from_collection_for_select(Book.all, 'id', 'bookid', selected = loan.book_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :loan_date, class: label_class %>
+          <%= form.date_field :loan_date, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :due_date, class: label_class %>
+          <%= form.date_field :due_date, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :return_date, class: label_class %>
+          <%= form.date_field :return_date, class: input_class %>
+      </div>
+
+<%= form.submit class: button_class(theme: 'primary') %>
+
+<% if loan.persisted? %>
+<%= link_to "Cancel", loan, class: "text-neutral-700 underline inline-block ml-3" %>
+<% else %>
+<%= link_to "Cancel", loans_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+<% end %>
+<% end %>

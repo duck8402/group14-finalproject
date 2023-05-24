@@ -1,0 +1,33 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Manager</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to managers_path, class: button_class(theme: "transparent") do %>
+      All Managers
+      <% end %>
+      <%= link_to edit_manager_path(@manager), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Managerid:</p>
+        <p><%= @manager.managerid %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Name:</p>
+        <p><%= @manager.name %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Phone:</p>
+        <p><%= @manager.phone %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Email:</p>
+        <p><%= @manager.email %></p>
+      </li>
+  </ul>
+</div>

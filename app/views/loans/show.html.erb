@@ -1,0 +1,45 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Loan</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to loans_path, class: button_class(theme: "transparent") do %>
+      All Loans
+      <% end %>
+      <%= link_to edit_loan_path(@loan), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Loanid:</p>
+        <p><%= @loan.loanid %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Library:</p>
+        <p><%= @loan.library.library_id %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Member:</p>
+        <p><%= @loan.member.memberid %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Book:</p>
+        <p><%= @loan.book.bookid %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Loan date:</p>
+        <p><%= @loan.loan_date %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Due date:</p>
+        <p><%= @loan.due_date %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Return date:</p>
+        <p><%= @loan.return_date %></p>
+      </li>
+  </ul>
+</div>

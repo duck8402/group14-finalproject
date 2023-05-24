@@ -1,0 +1,37 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Book_place</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to book_places_path, class: button_class(theme: "transparent") do %>
+      All Book_places
+      <% end %>
+      <%= link_to edit_book_place_path(@book_place), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Library:</p>
+        <p><%= @book_place.library.library_id %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Book:</p>
+        <p><%= @book_place.book.bookid %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Floor:</p>
+        <p><%= @book_place.floor.floor_number %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Shelve:</p>
+        <p><%= @book_place.shelve %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Row:</p>
+        <p><%= @book_place.row %></p>
+      </li>
+  </ul>
+</div>

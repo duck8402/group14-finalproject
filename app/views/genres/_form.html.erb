@@ -1,0 +1,30 @@
+<%= form_with(model: genre) do |form| %>
+<% if genre.errors.any? %>
+<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+  <h2 class="text-lg font-semibold mb-3"><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
+
+  <ul class="list-disc leading-relaxed">
+    <% genre.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="mb-6">
+        <%= form.label :genreid, class: label_class %>
+          <%= form.text_field :genreid, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :genre_name, class: label_class %>
+          <%= form.text_field :genre_name, class: input_class %>
+      </div>
+
+<%= form.submit class: button_class(theme: 'primary') %>
+
+<% if genre.persisted? %>
+<%= link_to "Cancel", genre, class: "text-neutral-700 underline inline-block ml-3" %>
+<% else %>
+<%= link_to "Cancel", genres_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+<% end %>
+<% end %>

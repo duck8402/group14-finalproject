@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  library: one
+  book: one
+  floor: one
+  shelve: MyString
+  row: MyString
+
+two:
+  library: two
+  book: two
+  floor: two
+  shelve: MyString
+  row: MyString

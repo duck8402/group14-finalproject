@@ -1,0 +1,42 @@
+<%= form_with(model: book_place) do |form| %>
+<% if book_place.errors.any? %>
+<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+  <h2 class="text-lg font-semibold mb-3"><%= pluralize(book_place.errors.count, "error") %> prohibited this book_place from being saved:</h2>
+
+  <ul class="list-disc leading-relaxed">
+    <% book_place.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="mb-6">
+        <%= form.label :library_id, class: label_class %>
+          <%= form.select :library_id, options_from_collection_for_select(Library.all, 'id', 'library_id', selected = book_place.library_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :book_id, class: label_class %>
+        <%= form.select :book_id, options_from_collection_for_select(Book.all, 'id', 'bookid', selected = book_place.book_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :floor_id, class: label_class %>
+        <%= form.select :floor_id, options_from_collection_for_select(Floor.all, 'id', 'floor_number', selected = book_place.floor_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :shelve, class: label_class %>
+          <%= form.text_field :shelve, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :row, class: label_class %>
+          <%= form.text_field :row, class: input_class %>
+      </div>
+
+<%= form.submit class: button_class(theme: 'primary') %>
+
+<% if book_place.persisted? %>
+<%= link_to "Cancel", book_place, class: "text-neutral-700 underline inline-block ml-3" %>
+<% else %>
+<%= link_to "Cancel", book_places_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+<% end %>
+<% end %>

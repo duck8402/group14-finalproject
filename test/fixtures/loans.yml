@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loanid: MyString
+  library: one
+  member: one
+  book: one
+  loan_date: 2023-05-21
+  due_date: 2023-05-21
+  return_date: 2023-05-21
+
+two:
+  loanid: MyString
+  library: two
+  member: two
+  book: two
+  loan_date: 2023-05-21
+  due_date: 2023-05-21
+  return_date: 2023-05-21

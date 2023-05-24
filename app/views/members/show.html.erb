@@ -1,0 +1,41 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Member</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to members_path, class: button_class(theme: "transparent") do %>
+      All Members
+      <% end %>
+      <%= link_to edit_member_path(@member), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Library:</p>
+        <p><%= @member.library.library_id %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Memberid:</p>
+        <p><%= @member.memberid %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Name:</p>
+        <p><%= @member.name %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Date of birth:</p>
+        <p><%= @member.date_of_birth %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Phone:</p>
+        <p><%= @member.phone %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Membership status:</p>
+        <p><%= @member.membership_status %></p>
+      </li>
+  </ul>
+</div>

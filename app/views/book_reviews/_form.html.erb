@@ -1,0 +1,46 @@
+<%= form_with(model: book_review) do |form| %>
+<% if book_review.errors.any? %>
+<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+  <h2 class="text-lg font-semibold mb-3"><%= pluralize(book_review.errors.count, "error") %> prohibited this book_review from being saved:</h2>
+
+  <ul class="list-disc leading-relaxed">
+    <% book_review.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="mb-6">
+        <%= form.label :library_id, class: label_class %>
+          <%= form.select :library_id, options_from_collection_for_select(Library.all, 'id', 'library_id', selected = book_review.library_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :member_id, class: label_class %>
+          <%= form.select :member_id, options_from_collection_for_select(Member.all, 'id', 'memberid', selected = book_review.member_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :book_id, class: label_class %>
+          <%= form.select :book_id, options_from_collection_for_select(Book.all, 'id', 'bookid', selected = book_review.book_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :rating_id, class: label_class %>
+          <%= form.select :rating_id, options_from_collection_for_select(Rating.all, 'id', 'rating', selected = book_review.rating_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :comment, class: label_class %>
+          <%= form.text_area :comment, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :reviewdate, class: label_class %>
+          <%= form.date_field :reviewdate, class: input_class %>
+      </div>
+
+<%= form.submit class: button_class(theme: 'primary') %>
+
+<% if book_review.persisted? %>
+<%= link_to "Cancel", book_review, class: "text-neutral-700 underline inline-block ml-3" %>
+<% else %>
+<%= link_to "Cancel", book_reviews_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+<% end %>
+<% end %>

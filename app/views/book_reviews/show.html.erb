@@ -1,0 +1,41 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Book_review</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to book_reviews_path, class: button_class(theme: "transparent") do %>
+      All Book_reviews
+      <% end %>
+      <%= link_to edit_book_review_path(@book_review), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Library:</p>
+        <p><%= @book_review.library.library_id %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Member:</p>
+        <p><%= @book_review.member.member_id %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Book:</p>
+        <p><%= @book_review.book.bookid %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Rating:</p>
+        <p><%= @book_review.rating.rating %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Comment:</p>
+        <p><%= @book_review.comment %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Reviewdate:</p>
+        <p><%= @book_review.reviewdate %></p>
+      </li>
+  </ul>
+</div>
